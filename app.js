@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttonCreate = document.querySelector('#create-wallet');
   const walletCollection = document.querySelector('#wallet-collection');
   const form = document.querySelector('form');
+  const saldo = document.querySelector('#show-saldo');
 
   // listeners
   buttonCreate.addEventListener('click', e => {
@@ -72,10 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // clear front
     walletCollection.innerHTML = '';
 
+    // sum wallets
+    const wallet = {"ARS":0, "USD":0, "BTC":0};
+
     fetch(URI)
       .then(resp=> resp.json())
-      .then(data => {data.forEach(arr => parseWallets(arr))})
-      .catch(err => console.log(err));
+      .then(data => {
+        data.forEach(arr => {
+          parseWallets(arr);
+          wallet[arr.currency] += arr.balance;
+        });
+        showSaldo(wallet);
+      }).catch(err => console.log(err));
   };
 
   const parseWallets = (arr) => {
@@ -83,9 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <li class="collection-item avatar">
     <i class="material-icons circle">account_balance_wallet</i>
     <span class="title">${arr.name}</span>
-    <p>${arr.balance}${arr.currency}<br>
-       -
-    </p>
+    <p>${arr.balance}${arr.currency}</p>
     <a href="#!" id="${arr.id}" class="secondary-content"><i class="material-icons deep-purple-text">delete</i></a>
   </li>
     `;
@@ -101,7 +108,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const getBalance = (id) => {
     return Math.round(Math.random()*id)*10
-  }
+  };
+
+  const showSaldo = (objectWallet) => {
+
+    const saldoTotal = Math.round(objectWallet["ARS"]*0.01 + objectWallet["USD"] + objectWallet["BTC"]*0.000016);
+    const template = `
+    <div class="collapsible-header deep-purple lighten-5"><h4>Tu saldo es ≈$${saldoTotal}</h4></div>
+    <div class="collapsible-body"><span>$ARS ${objectWallet["ARS"]}</span></div>
+    <div class="collapsible-body"><span>$UDS ${objectWallet["USD"]}</span></div>
+    <div class="collapsible-body"><span>${objectWallet["BTC"]} BTC</span></div>
+    `;
+    saldo.innerHTML = template;
+  };
 
   // app setup
   showWallets(`${URI}/accounts`);
