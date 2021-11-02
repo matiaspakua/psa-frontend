@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import materialize.css--> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Billetera Digital</title>
+</head>
+<body>
+    
+  <nav class="nav-extended deep-purple darken-4">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">ERP 2</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Home</a></li>
+        <li><a href="badges.html">Contacto</a></li>
+        <li><a href="collapsible.html">Acerca</a></li>
+      </ul>
+    </div>
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a class="active" href="#billetera">Billeteras</a></li>
+        <li class="tab disabled"><a href="#cuenta">Cuenta</a></li>
+        <li class="tab disabled"><a href="#movimientos">Movimientos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- sidenav menu -->
+  <div class="sidenav" id="mobile-demo">
+    <form action="">
+      <div class="row">
+        
+        <h6 class="center-align">Crear una Billetera</h6>
+
+        <!-- wallet name -->
+        <div class="input-field col s10">
+          <i class="material-icons prefix">account_balance_wallet</i>
+          <input type="text" id="wallet-name" class="autocomplete">
+          <label for="wallet-name">Nombre</label>
+        </div>
+
+        <!-- cbu or id -->
+        <div class="input-field col s12">
+          <i class="material-icons prefix">payment</i>
+          <input type="text" id="cbu-or-id">
+          <label for="cbu-or-id">CBU/ID</label>
+        </div>
+
+        <!-- currency problema con los colores de las letras en la seleccion--> 
+        <div class="input-field col s10">
+          <i class="material-icons prefix">attach_money</i>
+          <select id="currency-selection">
+            <option value="0">ARS</option><!-- problema a resolver queda debilmente acomplado al form  -->
+            <option value="1">USD</option>
+            <option value="2">BTC</option>
+          </select>
+          <label>Moneda</label>
+        </div>
+
+        <!-- create button -->
+        <div class="container col s10 center-align">
+          <button class="btn waves-effect waves-light deep-purple darken-3" type="submit" name="action" id="create-wallet">Crear
+            <i class="material-icons right">check</i>
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <div class="container">
+    <div id="billetera" class="col s12">
+        <div class="row">
+            <div class="col s12">
+
+                <div class="container ">
+                    <h6 class="center-align">Bienvenido :D</h6>
+                    <ul class="collapsible ">
+                        <li>
+                          <div class="collapsible-header deep-purple lighten-5">Tu saldo es 450$<i class="material-icons">expand_more</i></div>
+                          <div class="collapsible-body"><span>BTC0.00001</span></div>
+                          <div class="collapsible-body"><span>ARG$10000</span></div>
+                        </li>
+                      </ul>
+                      <a class="waves-effect waves-light btn-small deep-purple darken-1"><i class="material-icons left">trending_up</i>Comprar</a>
+                      <a class="waves-effect waves-light btn-small deep-purple darken-1"><i class="material-icons left">attach_money</i>Vender</a>
+                </div>
+            </div>
+          </div>
+    
+    <div class="container">
+        <ul class="collection" id="wallet-collection">
+          <!-- dynamic javascript content -->
+        </ul>
+      <div class="container center-align">
+        <a class="btn-floating btn-large waves-effect waves-light deep-purple sidenav-trigger" data-target="mobile-demo" id="open-side-menu"><i class="material-icons">add</i></a>
+      </div>
+      
+
+    </div>
+</div>
+</div>
+
+  <div id="cuenta" class="col s12">Cuenta</div>
+  <div id="movimientos" class="col s12">Movimientos</div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
