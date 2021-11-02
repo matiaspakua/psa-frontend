@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  const URI = 'https://calm-lake-70360.herokuapp.com';
+  const URI = 'https://psa-api-pagos.herokuapp.com/';
   
   // materialize setup
   M.AutoInit();
