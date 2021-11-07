@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const URI = 'https://psa-api-pagos.herokuapp.com';
-  
+  //const URI = 'http://localhost:8080';
+  var allWallets = {};
   // materialize setup
   M.AutoInit();
   var elems = document.querySelectorAll('.autocomplete');
@@ -28,12 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
     showWallets(`${URI}/accounts/`);
     
   });
-  walletCollection.addEventListener('click', e => {
 
+  walletCollection.addEventListener('click', e => {
     if(e.target.textContent === 'delete'){
-      const id = e.target.offsetParent.id;
-      console.log(id + "ha sido eliminado");
-      deleteWallet(id);
+      var id = e.target.offsetParent.id;
+      var cbuToDelete;
+      allWallets.forEach(wallet => {
+        if(wallet.id==id){
+          cbuToDelete = wallet.cbu;
+        }
+      });
+      deleteWallet(cbuToDelete);
     };
 
   });
@@ -79,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(URI)
       .then(resp=> resp.json())
       .then(data => {
+        allWallets = data;
         data.forEach(arr => {
           parseWallets(arr);
           wallet[arr.currency] += arr.balance;
@@ -92,18 +99,21 @@ document.addEventListener('DOMContentLoaded', () => {
     <li class="collection-item avatar">
     <i class="material-icons circle">account_balance_wallet</i>
     <span class="title">${arr.name}</span>
-    <p>${arr.balance}${arr.currency}</p>
+    <p>SALDO: ${arr.balance} (${arr.currency})</p>
+    <p>CBU: ${arr.cbu}</p>
     <a href="#!" id="${arr.id}" class="secondary-content"><i class="material-icons deep-purple-text">delete</i></a>
   </li>
     `;
     walletCollection.innerHTML += template;
   }
 
-  const deleteWallet = (id) => {
+  const deleteWallet = (cbu) => {
 
-    fetch(`${URI}/accounts/${id}/`, {
+    console.log(cbu + " Ha sido eliminado");
+    fetch(`${URI}/accounts/${cbu}/`, {
       method:'DELETE'
     }).then(resp => showWallets(`${URI}/accounts/`));
+    
   };
 
   const getBalance = (id) => {
@@ -111,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const showSaldo = (objectWallet) => {
-
     const saldoTotal = Math.round(objectWallet["ARS"]*0.01 + objectWallet["USD"] + objectWallet["BTC"]*0.000016);
     const template = `
     <div class="collapsible-header deep-purple lighten-5"><h4>Tu saldo es ≈$${saldoTotal}</h4></div>
