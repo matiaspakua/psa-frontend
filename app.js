@@ -3,10 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const URI = 'https://psa-api-pagos.herokuapp.com';
   //const URI = 'http://localhost:8080';
   var allWallets = {};
+
   // materialize setup
   M.AutoInit();
-  var elems = document.querySelectorAll('.autocomplete');
-  var instances = M.Autocomplete.init(elems, {
+
+  var elemsAutocomplete = document.querySelectorAll('.autocomplete');
+  var instancesAutocomplete = M.Autocomplete.init(elemsAutocomplete, {
     data:{
       "Meli": './icons/mercadopago.png',
       "Brubank": './icons/brubank.png',
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // dom querys
+  // dom
   const buttonCreate = document.querySelector('#create-wallet');
   const walletCollection = document.querySelector('#wallet-collection');
   const form = document.querySelector('form');

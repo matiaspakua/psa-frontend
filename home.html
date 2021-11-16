@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Principal</title>
+    <title>PSA Spring</title>
 </head>
 <body>
     
   <nav class="nav-extended deep-purple darken-4">
     <div class="nav-wrapper">
-      <a href="/home.html" id="titulo-principal" class="brand-logo">PSA Gestión de Billeteras Digitales - Principal</a>
+      <a href="/home.html" id="titulo-principal" class="brand-logo">Billetera Digital</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/home.html">Home</a></li>
@@ -73,46 +73,33 @@
     </form>
   </div>
 
-  <div class="container">
-    <div id="billetera" class="col s12">
-        <div class="row">
-            <div class="col s12">
-
-                <div class="container ">
-                    <h3 class="center-align">Bienvenido Juan Perez</h3>
-                    <ul class="collapsible ">
-                        <li id="show-saldo">
-                          <!-- dynamic javascript content -->
-                        </li>
-                      </ul>
-                      <a class="waves-effect waves-light btn-small deep-purple darken-1"><i class="material-icons left">trending_up</i>Depositar</a>
-                      <a class="waves-effect waves-light btn-small deep-orange darken-1"><i class="material-icons left">attach_money</i>Extraer</a>
-                      <a class="waves-effect waves-light btn-small deep-green darken-1"><i class="material-icons left">transfer_money</i>Transferir</a>
-                </div>
-            </div>
-          </div>
-    
-    <div class="container">
-        <ul class="collection" id="wallet-collection">
-          <!-- dynamic javascript content -->
+  <!-- seccion billetera -->
+  <div id="billetera" class="section">
+    <div class="row">
+      <div class="col s10 m6 l6 push-s1 push-m3 push-l3">
+        <h5 class="center-align">Bienvenido Juan Perez</h5>
+        <ul class="collapsible ">
+          <li id="show-saldo">
+            <!-- dynamic saldo content -->
+          </li>
         </ul>
-      <div class="container center-align">
-        <a class="btn-floating btn-large waves-effect waves-light deep-purple sidenav-trigger" data-target="mobile-demo" id="open-side-menu"><i class="material-icons">add</i></a>
+        <ul class="collection" id="wallet-collection">
+          <!-- dynamic wallet content -->
+        </ul>
+        <div class="container center-align">
+          <a class="btn-floating waves-effect waves-light deep-purple sidenav-trigger" data-target="mobile-demo" id="open-side-menu"><i class="material-icons">add</i></a>
+        </div>
       </div>
-      
-
     </div>
-</div>
-</div>
-
+  </div>
+  <!-- seccion cuenta -->
   <div id="cuenta" class="col s12">Cuenta</div>
+  <!-- seccion movimientos -->
   <div id="movimientos" class="col s12">Movimientos</div>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- Custom scripts -->
-    <script src="app.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Custom scripts -->
+  <script src="app.js"></script>
 </body>
-
-
 </html>
