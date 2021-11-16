@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   walletCollection.addEventListener('click', e => {
-    if(e.target.textContent === 'delete'){
+    if(e.target.textContent === 'delete' ) {
       var id = e.target.offsetParent.id;
       var cbuToDelete;
       allWallets.forEach(wallet => {
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <span class="title">${arr.name}</span>
     <p>SALDO: ${arr.balance} (${arr.currency})</p>
     <p>CBU: ${arr.cbu}</p>
-    <a href="#!" id="${arr.id}" class="secondary-content"><i class="material-icons deep-purple-text">delete</i></a>
+    <a href="#confirmacion" id="${arr.id}" class="secondary-content modal-trigger"><i class="material-icons deep-purple-text">delete</i></a>
   </li>
     `;
     walletCollection.innerHTML += template;
@@ -111,10 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const deleteWallet = (cbu) => {
 
-    console.log(cbu + " Ha sido eliminado");
-    fetch(`${URI}/accounts/${cbu}/`, {
-      method:'DELETE'
-    }).then(resp => showWallets(`${URI}/accounts/`));
+    // console.log(cbu + " Ha sido eliminado");
+    // fetch(`${URI}/accounts/${cbu}/`, {
+    //   method:'DELETE'
+    // }).then(resp => showWallets(`${URI}/accounts/`));
     
   };
 
