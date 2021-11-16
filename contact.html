@@ -7,35 +7,63 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Contacto</title>
+    <title>PSA Spring</title>
 </head>
+<body>
+    
+  <nav class="nav-extended deep-purple darken-4">
+    <div class="nav-wrapper">
+      <a href="/home.html" id="titulo-principal" class="brand-logo">Billetera Digital</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/home.html">Home</a></li>
+        <li><a href="/contact.html">Contacto</a></li>
+        <li><a href="/about.html">Acerca</a></li>
+      </ul>
+    </div>
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a class="active" href="#billetera">Billeteras</a></li>
+        <li class="tab disabled"><a href="#cuenta">Cuenta</a></li>
+        <li class="tab disabled"><a href="#movimientos">Movimientos</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<nav class="nav-extended deep-purple darken-4">
-  <div class="nav-wrapper">
-    <a href="/home.html" id="titulo-principal" class="brand-logo">PSA Gestión de Billeteras Digitales - Principal</a>
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="/home.html">Home</a></li>
-      <li><a href="/contact.html">Contacto</a></li>
-      <li><a href="/about.html">Acerca</a></li>
-    </ul>
+  <div class="container">
+    <h1>Contacto</h1>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input placeholder="Nombre" id="first_name" type="text" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">email</i>
+            <input id="email" type="email" class="validate">
+            <label for="email">Correo</label>
+            <span class="helper-text" data-error="Correo invalido" data-success="Correo Valido">Escribe un correo valido</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea2">Escribe tu consulta</label>
+          </div>
+        </div>
+        <div class="container center-align">
+          <button class="btn blue darken-4 waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>  
+        </div>
+        
+      </form>
+    </div>
+          
   </div>
-  <div class="nav-content">
-    <ul class="tabs tabs-transparent">
-      <li class="tab"><a class="active" href="#billetera">Billeteras</a></li>
-      <li class="tab disabled"><a href="#cuenta">Cuenta</a></li>
-      <li class="tab disabled"><a href="#movimientos">Movimientos</a></li>
-    </ul>
-  </div>
-</nav>
 
-<div class="container">
-  <h1>PSA CONTACTO </h1>
-  <p>Contactar al equipo de PSA:</p>
-
-  <address>
-    <a href="mailto:admin@psa.com">admin@psa.com</a><br>
-    <a href="https://github.com/matiaspakua/proyecto-psa">URL: https://github.com/matiaspakua/proyecto-psa</a>
-  </address>
-  
-</div>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Custom scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
