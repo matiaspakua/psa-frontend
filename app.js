@@ -17,11 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // global vars
+  var cbuToDelete;
+
   // dom
   const buttonCreate = document.querySelector('#create-wallet');
   const walletCollection = document.querySelector('#wallet-collection');
   const form = document.querySelector('form');
   const saldo = document.querySelector('#show-saldo');
+  const acceptDeleteButton = document.querySelector('#confirmacion-eliminar');
 
   // listeners
   buttonCreate.addEventListener('click', e => {
@@ -35,15 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
   walletCollection.addEventListener('click', e => {
     if(e.target.textContent === 'delete' ) {
       var id = e.target.offsetParent.id;
-      var cbuToDelete;
       allWallets.forEach(wallet => {
         if(wallet.id==id){
           cbuToDelete = wallet.cbu;
         }
       });
-      deleteWallet(cbuToDelete);
     };
+  });
 
+  acceptDeleteButton.addEventListener('click', e => {
+    deleteWallet(cbuToDelete);
+    console.log('deleted' + cbuToDelete )
   });
 
   // functions
@@ -111,10 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const deleteWallet = (cbu) => {
 
-    // console.log(cbu + " Ha sido eliminado");
-    // fetch(`${URI}/accounts/${cbu}/`, {
-    //   method:'DELETE'
-    // }).then(resp => showWallets(`${URI}/accounts/`));
+    console.log(cbu + " Ha sido eliminado");
+    fetch(`${URI}/accounts/${cbu}/`, {
+      method:'DELETE'
+    }).then(resp => showWallets(`${URI}/accounts/`));
     
   };
 
