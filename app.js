@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <li class="collection-item avatar">
     <i class="material-icons circle deep-purple">account_balance_wallet</i>
     <span class="title">${arr.name}</span>
-    <p>Saldo: ${Math.round(arr.balance)} (${arr.currency})</p>
+    <p>Saldo: ${Math.round(arr.balance)} ${arr.currency}</p>
     <p>Cbu: ${arr.cbu}</p>
     <a href="#confirmacion" id="${arr.id}" class="secondary-content modal-trigger"><i class="material-icons deep-purple-text">delete</i></a>
     </li>
