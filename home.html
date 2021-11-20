@@ -11,7 +11,7 @@
 </head>
 <body>
     
-  <nav class="nav-extended deep-purple darken-4">
+  <nav class="nav-extended deep-purple darken-2">
     <div class="nav-wrapper">
       <a href="/home.html" id="titulo-principal" class="brand-logo">Billetera Digital</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -84,15 +84,38 @@
           </li>
         </ul>
         <div class="container center-align">
-          <a class="waves-effect waves-light btn-small blue darken-3">Depositar</a>
-          <a class="waves-effect waves-light btn-small blue darken-3">Extraer</a>
-          <a class="waves-effect waves-light btn-small blue darken-3">Transferir</a>
+          <div class="row">
+            <div class="col s4">
+              <div class="icon-block">
+                <h2 class="center">
+                  <a href=""><i class="material-icons medium deep-purple-text darken-2-text">attach_money</i></a>
+                  <h6 class="center">Depósito</h6>
+                </h2>
+              </div>
+            </div>
+            <div class="col s4">
+              <div class="icon-block">
+                <h2 class="center">
+                  <a href=""><i class="material-icons medium deep-purple-text darken-2-text">monetization_on</i></a>
+                  <h6 class="center">Extracción</h6>
+                </h2>
+              </div>
+            </div>
+            <div class="col s4">
+              <div class="icon-block">
+                <h2 class="center">
+                  <a href=""><i class="material-icons medium deep-purple-text darken-2-text">swap_vert</i></a>
+                  <h6 class="center">Transferir</h6>
+                </h2>
+              </div>
+            </div>
+          </div>
         </div>
         <ul class="collection" id="wallet-collection">
           <!-- dynamic wallet content -->
         </ul>
         <div class="container center-align">
-          <a class="btn-floating waves-effect waves-light deep-purple sidenav-trigger" data-target="mobile-demo" id="open-side-menu"><i class="material-icons">add</i></a>
+          <a class="btn-floating waves-effect waves-light deep-purple sidenav-trigger btn-large" data-target="mobile-demo" id="open-side-menu"><i class="material-icons">add</i></a>
         </div>
       </div>
     </div>

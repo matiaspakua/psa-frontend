@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const showSaldo = (objectWallet) => {
     const saldoTotal = Math.round(objectWallet["ARS"]*0.01 + objectWallet["USD"] + objectWallet["BTC"]*0.000016);
     const template = `
-    <div class="collapsible-header deep-purple lighten-5"><h4>Tu saldo es ≈$${saldoTotal}</h4></div>
+    <div class="collapsible-header deep-purple lighten-5"><h5>Tu saldo es ≈$${saldoTotal}</h5></div>
     <div class="collapsible-body"><span>$ARS ${objectWallet["ARS"]}</span></div>
     <div class="collapsible-body"><span>$UDS ${objectWallet["USD"]}</span></div>
     <div class="collapsible-body"><span>${objectWallet["BTC"]} BTC</span></div>
