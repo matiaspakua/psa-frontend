@@ -2,8 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const URI = 'https://psa-api-pagos.herokuapp.com';
   //const URI = 'http://localhost:8080';
-  var allWallets = {};
 
+  // global vars
+  var allWallets = {};
+  var cbuToDelete;
+  
   // materialize setup
   M.AutoInit();
 
@@ -16,9 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
       "Uala": './icons/uala.jpg'
     }
   });
-
-  // global vars
-  var cbuToDelete;
 
   // dom
   const buttonCreate = document.querySelector('#create-wallet');
@@ -104,12 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const parseWallets = (arr) => {
     const template = `
     <li class="collection-item avatar">
-    <i class="material-icons circle">account_balance_wallet</i>
+    <i class="material-icons circle deep-purple">account_balance_wallet</i>
     <span class="title">${arr.name}</span>
     <p>SALDO: ${arr.balance} (${arr.currency})</p>
     <p>CBU: ${arr.cbu}</p>
     <a href="#confirmacion" id="${arr.id}" class="secondary-content modal-trigger"><i class="material-icons deep-purple-text">delete</i></a>
-  </li>
+    </li>
     `;
     walletCollection.innerHTML += template;
   }
