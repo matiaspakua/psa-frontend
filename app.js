@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   acceptDeleteButton.addEventListener('click', e => {
     deleteWallet(cbuToDelete);
-    console.log('deleted' + cbuToDelete )
   });
 
   // functions
