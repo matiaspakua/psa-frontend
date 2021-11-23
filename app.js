@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const createWallet = (URI) => {
 
     const walletName = form['wallet-name'].value;
-    const cbuOrId = form['cbu-or-id'].value;
+    const cbu = form['cbu'].value;
     const currencySelection = form['currency-selection'].value;
     const currency = ["ARS", "USD", "BTC"]; // problema a resolver queda debilmente acomplado al form
 
     const body = {
-      "balance": getBalance(cbuOrId),
+      "balance": getBalance(cbu),
       "name": walletName,
-      "cbu": cbuOrId,
+      "cbu": cbu,
       "currency": currency[currencySelection]
     };
 
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // clean form
     form['wallet-name'].value = '';
-    form['cbu-or-id'].value = '';
+    form['cbu'].value = '';
     form['currency-selection'].value = 0;
   };
 
