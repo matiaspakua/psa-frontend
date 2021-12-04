@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  const URI = 'https://psa-api-pagos.herokuapp.com';
-  //const URI = 'http://localhost:8080';
+  // const URI = 'https://psa-api-pagos.herokuapp.com';
+  const URI = 'http://localhost:8080';
 
   // global vars
   var allWallets = {};
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // functions
-  const createWallet = (URI) => {
+  const createWallet = async(URI) => {
 
     const walletName = form['wallet-name'].value;
     const cbu = form['cbu'].value;
@@ -68,14 +68,23 @@ document.addEventListener('DOMContentLoaded', () => {
       "currency": currency[currencySelection]
     };
 
-    fetch(URI, {
+    await fetch(URI, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
-    }).then(resp => console.log(resp))
-    .catch(err => console.log(err));
+    }).then(async response => {
+      if(!response.ok) {
+        const responseAsJson = await response.json();
+        console.log("Response not ok as: " + JSON.stringify(responseAsJson))
+
+        const errorMessage = responseAsJson.message;
+        alert(errorMessage);
+      }
+    }).catch(err => {
+      console.log(err)
+    });
 
     // clean form
     form['wallet-name'].value = '';
