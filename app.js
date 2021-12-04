@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // const URI = 'https://psa-api-pagos.herokuapp.com';
-  const URI = 'http://localhost:8080';
+  const URI = 'https://psa-api-pagos.herokuapp.com';
+  // const URI = 'http://localhost:8080';
 
   // global vars
   var allWallets = {};
