@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const walletName = form['wallet-name'].value;
     const cbu = form['cbu'].value;
+    const alias = form['alias'].value;
     const currencySelection = form['currency-selection'].value;
     const currency = ["ARS", "USD", "BTC"]; // problema a resolver queda debilmente acomplado al form
 
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "balance": getBalance(cbu),
       "name": walletName,
       "cbu": cbu,
+      "alias": alias,
       "currency": currency[currencySelection]
     };
 
@@ -78,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // clean form
     form['wallet-name'].value = '';
     form['cbu'].value = '';
+    form['alias'].value = '';
     form['currency-selection'].value = 0;
   };
 
@@ -108,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <span class="title">${arr.name}</span>
     <p>Saldo: ${Math.round(arr.balance)} ${arr.currency}</p>
     <p>Cbu: ${arr.cbu}</p>
+    <p>Alias: ${arr.alias === undefined ? "-----------" : arr.alias}</p>
     <a href="#confirmacion" id="${arr.id}" class="secondary-content modal-trigger"><i class="material-icons deep-purple-text">delete</i></a>
     </li>
     `;
