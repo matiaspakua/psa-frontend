@@ -82,9 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const errorMessage = responseAsJson.message === undefined ? "UNKNOWN ERROR" : responseAsJson.message;
         alert(errorMessage);
       }
-    }).catch(err => {
-      console.log(err)
-    });
+    }).catch(err => console.log(err));
 
     // clean form
     form['wallet-name'].value = '';
