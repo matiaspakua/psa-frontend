@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const responseAsJson = await response.json();
         console.log("Response not ok as: " + JSON.stringify(responseAsJson))
 
-        const errorMessage = responseAsJson.message;
+        const errorMessage = responseAsJson.message === undefined ? "UNKNOWN ERROR" : responseAsJson.message;
         alert(errorMessage);
       }
     }).catch(err => {
