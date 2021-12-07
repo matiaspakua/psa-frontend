@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const URI = 'https://psa-api-pagos.herokuapp.com';
-  //const URI = 'http://localhost:8080';
+  // const URI = 'http://localhost:8080';
 
   // global vars
   var allWallets = {};
@@ -52,10 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // functions
-  const createWallet = (URI) => {
+  const createWallet = async(URI) => {
 
     const walletName = form['wallet-name'].value;
     const cbu = form['cbu'].value;
+    const alias = form['alias'].value;
     const currencySelection = form['currency-selection'].value;
     const currency = ["ARS", "USD", "BTC"]; // problema a resolver queda debilmente acomplado al form
 
@@ -63,21 +64,30 @@ document.addEventListener('DOMContentLoaded', () => {
       "balance": getBalance(cbu),
       "name": walletName,
       "cbu": cbu,
+      "alias": alias,
       "currency": currency[currencySelection]
     };
 
-    fetch(URI, {
+    await fetch(URI, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
-    }).then(resp => console.log(resp))
-    .catch(err => console.log(err));
+    }).then(async response => {
+      if(!response.ok) {
+        const responseAsJson = await response.json();
+        console.log("Response not ok as: " + JSON.stringify(responseAsJson))
+
+        const errorMessage = responseAsJson.message === undefined ? "UNKNOWN ERROR" : responseAsJson.message;
+        alert(errorMessage);
+      }
+    }).catch(err => console.log(err));
 
     // clean form
     form['wallet-name'].value = '';
     form['cbu'].value = '';
+    form['alias'].value = '';
     form['currency-selection'].value = 0;
   };
 
@@ -108,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <span class="title">${arr.name}</span>
     <p>Saldo: ${Math.round(arr.balance)} ${arr.currency}</p>
     <p>Cbu: ${arr.cbu}</p>
+    <p>Alias: ${arr.alias === undefined ? "-----------" : arr.alias}</p>
     <a href="#confirmacion" id="${arr.id}" class="secondary-content modal-trigger"><i class="material-icons deep-purple-text">delete</i></a>
     </li>
     `;
